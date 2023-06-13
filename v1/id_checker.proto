@@ -1,5 +1,5 @@
 syntax = "proto3";
-package id_checker.v1;
+package id_checker;
 option go_package = "github.com/todo-lists-app/protobufs/generated/id_checker/v1";
 
 message CheckIdRequest {

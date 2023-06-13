@@ -35,7 +35,7 @@ func NewIdCheckerServiceClient(cc grpc.ClientConnInterface) IdCheckerServiceClie
 
 func (c *idCheckerServiceClient) CheckId(ctx context.Context, in *CheckIdRequest, opts ...grpc.CallOption) (*CheckIdResponse, error) {
 	out := new(CheckIdResponse)
-	err := c.cc.Invoke(ctx, "/id_checker.v1.IdCheckerService/CheckId", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/id_checker.IdCheckerService/CheckId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _IdCheckerService_CheckId_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/id_checker.v1.IdCheckerService/CheckId",
+		FullMethod: "/id_checker.IdCheckerService/CheckId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(IdCheckerServiceServer).CheckId(ctx, req.(*CheckIdRequest))
@@ -92,7 +92,7 @@ func _IdCheckerService_CheckId_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var IdCheckerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "id_checker.v1.IdCheckerService",
+	ServiceName: "id_checker.IdCheckerService",
 	HandlerType: (*IdCheckerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
