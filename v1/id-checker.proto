@@ -1,0 +1,16 @@
+syntax = "proto3";
+package id-checker.v1;
+option go_package "github.com/todo-lists-app/protobufs/go/id-checker/v1";
+
+message CheckIdRequest {
+  string id = 1;
+}
+
+message CheckIdResponse {
+  bool is_valid = 1;
+  optional string status = 99;
+}
+
+service IdCheckerService {
+  rpc CheckId(CheckIdRequest) returns (CheckIdResponse);
+}
