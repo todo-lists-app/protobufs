@@ -2,9 +2,10 @@
 setup:
 	mkdir -p generated
 	mkdir -p generated/id_checker
+	mkdir -p generated/ping
 
 .PHONY: generate
-generate: setup id_checker
+generate: setup id_checker ping
 
 .PHONY: id_checker
 id_checker:
@@ -12,4 +13,11 @@ id_checker:
 		--go_out ./generated/id_checker --go_opt paths=source_relative \
 		--go-grpc_out ./generated/id_checker --go-grpc_opt paths=source_relative \
 		v1/id_checker.proto
+
+.PHONY: ping
+ping:
+	protoc -I . \
+		--go_out ./generated/ping --go_opt paths=source_relative \
+		--go-grpc_out ./generated/ping --go-grpc_opt paths=source_relative \
+		v1/ping.proto
 
