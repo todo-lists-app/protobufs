@@ -1,0 +1,26 @@
+syntax = "proto3";
+package todo;
+option go_package = "github.com/todo-lists-app/protobufs/generated/todo/v1";
+
+message TodoGetRequest {
+  string userId = 1;
+}
+
+message TodoInsertRequest {
+  string userId = 1;
+  string data = 2;
+  string iv = 3;
+}
+
+message TodoRetrieveResponse {
+  string userId = 1;
+  string data = 2;
+  string iv = 3;
+
+  string status = 99;
+}
+
+service TodoService {
+  rpc Get(TodoGetRequest) returns (TodoRetrieveResponse);
+  rpc Insert(TodoInsertRequest) returns (TodoRetrieveResponse);
+}
