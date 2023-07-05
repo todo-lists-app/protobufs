@@ -17,7 +17,7 @@ message TodoRetrieveResponse {
   string data = 2;
   string iv = 3;
 
-  string status = 99;
+  optional string status = 99;
 }
 
 service TodoService {
