@@ -6,7 +6,7 @@ message TodoGetRequest {
   string userId = 1;
 }
 
-message TodoInsertRequest {
+message TodoInjectRequest {
   string userId = 1;
   string data = 2;
   string iv = 3;
@@ -22,5 +22,6 @@ message TodoRetrieveResponse {
 
 service TodoService {
   rpc Get(TodoGetRequest) returns (TodoRetrieveResponse);
-  rpc Insert(TodoInsertRequest) returns (TodoRetrieveResponse);
+  rpc Insert(TodoInjectRequest) returns (TodoRetrieveResponse);
+  rpc Update(TodoInjectRequest) returns (TodoRetrieveResponse);
 }
