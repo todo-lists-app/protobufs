@@ -4,9 +4,10 @@ setup:
 	mkdir -p generated/id_checker
 	mkdir -p generated/ping
 	mkdir -p generated/todo
+	mkdir -p generated/user
 
 .PHONY: generate
-generate: setup id_checker ping todo
+generate: setup id_checker ping todo user
 
 .PHONY: id_checker
 id_checker:
@@ -28,4 +29,11 @@ todo:
 		--go_out ./generated/todo --go_opt paths=source_relative \
 		--go-grpc_out ./generated/todo --go-grpc_opt paths=source_relative \
 		v1/todo.proto
+
+.PHONY: user
+user:
+	protoc -I . \
+		--go_out ./generated/user --go_opt paths=source_relative \
+		--go-grpc_out ./generated/user --go-grpc_opt paths=source_relative \
+		v1/user.proto
 

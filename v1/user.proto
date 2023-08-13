@@ -1,0 +1,15 @@
+syntax = "proto3";
+package user;
+option go_package = "github.com/todo-lists-app/protobufs/generated/user/v1";
+
+message UserDeleteRequest {
+  string userId = 1;
+}
+
+message UserDeleteResponse {
+  string status = 1;
+}
+
+service UserService {
+  rpc Delete(UserDeleteRequest) returns (UserDeleteResponse);
+}
