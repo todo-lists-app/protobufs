@@ -20,7 +20,7 @@ message TodoRetrieveResponse {
   optional string status = 99;
 }
 
-message TodoUserRequest {
+message TodoDeleteRequest {
   string userId = 1;
 }
 
@@ -28,5 +28,5 @@ service TodoService {
   rpc Get(TodoGetRequest) returns (TodoRetrieveResponse);
   rpc Insert(TodoInjectRequest) returns (TodoRetrieveResponse);
   rpc Update(TodoInjectRequest) returns (TodoRetrieveResponse);
-  rpc Delete(TodoUserRequest) returns (TodoRetrieveResponse);
+  rpc Delete(TodoDeleteRequest) returns (TodoRetrieveResponse);
 }
