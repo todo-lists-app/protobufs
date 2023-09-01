@@ -4,6 +4,7 @@ option go_package = "github.com/todo-lists-app/protobufs/generated/user/v1";
 
 message UserDeleteRequest {
   string userId = 1;
+  string accessToken = 2;
 }
 
 message UserDeleteResponse {
